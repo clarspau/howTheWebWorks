@@ -1,0 +1,83 @@
+Part One: Solidify Terminology
+1. What is HTTP?
+
+- HTTP stands for Hypertext Transfer Protocol. It is a tool that is used to request and get data and/or sends data to a server.
+
+
+2. What is a URL?
+
+- URL stands for Uniform Resource Locator and it is a unique address that is used to locate a resource on the internet.
+
+
+3. What is DNS?
+
+- DNS stands for Domain Name System. This is a system that converts human-readable domain names into IP addresses.
+
+
+4. What is a query string?
+
+- A query string is a ? at the end of a url followed by a set of characters, that represents a unique key-value pairs.
+
+
+5. What are two HTTP verbs and how are they different?
+
+- Two common HTTP verbs are GET and POST. GET are requests that are meant to retrieve data from a server and does not modify the server’s state. While POST sends data to the server to modify the server’s state.
+
+
+6. What is an HTTP request?
+
+- An HTTP request is a request made by a client or user to a server, mainly to access a resource on the server.
+
+
+7. What is an HTTP response?
+
+- An HTTP response is a response from a server to a client or user based on the resource requested.
+
+
+8. What is an HTTP header? Give a couple examples of request and response headers you have seen.
+
+- HTTP Header are the additional information provided about the request or the response. Some examples of header requests are Accept-Language, Host, Cookie, Cache-control, etc. While some examples of header responses are Last-modified, Content-type, Set-cookie, etc.
+
+
+9. What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+
+- When we type a website into a browser, first the browser will look for the IP address of the domain name in the DNS. Then the browser initiates a connection and send a request to that IP address. Next the server receives the request and responds. After receiving the response, the browser makes a DOM from all the information it received such as HTML, CSS, JavaScript, etc. Finally, the browser displays all these resources to the client or user.
+ 
+
+
+Part Two: Practice Tools
+
+1. Using curl, make a GET request to the icanhazdadjoke.com API to find all jokes involving the word “pirate”
+
+- https://icanhazdadjoke.com/search?term=pirate
+
+
+2. Use dig to find what the IP address is for icanhazdadjoke.com
+
+% dig icanhazdadjoke.com
+
+; <<>> DiG 9.10.6 <<>> icanhazdadjoke.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53447
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;icanhazdadjoke.com.		IN	A
+
+;; ANSWER SECTION:
+icanhazdadjoke.com.	293	IN	A	104.21.66.15
+icanhazdadjoke.com.	293	IN	A	172.67.198.173
+
+;; Query time: 59 msec
+;; SERVER: 2600:1700:9758:78c0::1#53(2600:1700:9758:78c0::1)
+;; WHEN: Tue Jul 04 22:08:11 PDT 2023
+;; MSG SIZE  rcvd: 79
+
+
+3. Make a simple web page and serve it using python3 -m http.server. Visit the page in a browser.
+
+~ % python3 -m http.server
+Serving HTTP on :: port 8000 (http://[::]:8000/) ...
